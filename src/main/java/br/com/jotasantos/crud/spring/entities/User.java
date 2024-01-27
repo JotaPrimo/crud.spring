@@ -46,7 +46,7 @@ public class User implements Serializable {
     @Column(name = "data_nascimento")
     private Date dataNascimento;
 
-    @Column(columnDefinition = "true")
+    @Column(columnDefinition = "BOOLEAN DEFAULT true")
     private boolean ativo;
 
     @Column
