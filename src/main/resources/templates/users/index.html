@@ -1,260 +1,124 @@
 <!DOCTYPE html>
-<html
-        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-        layout:decorate="layout/public/base">
-
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/public/base">
 <body>
 <!-- Conteúdo específico da página de usuários aqui -->
 <div layout:fragment="content">
     <div class="row">
-        <div class="col-xxl-12">
-            <div class="card overflow-hidden">
-                <div class="card-header">
-                    <h3 class="card-title">Conteúdo da Página de Usuários</h3>
+        <div class="col-xl-12">
+            <div class="card custom-card">
+                <div class="card-header justify-content-between">
+                    <div class="card-title">Usuários</div>
+                    <div class="prism-toggle">
+                        <button class="btn btn-sm btn-primary-light">Show Code<i class="ri-code-line ms-2 d-inline-block align-middle"></i></button>
+                    </div>
                 </div>
                 <div class="card-body">
-                    <div class="d-flex mx-auto text-center justify-content-center mb-4">
-                        <div class="d-flex text-center justify-content-center me-3"><span
-                                class="dot-label bg-primary my-auto"></span>Total Sales
+                    <form class="row g-3 mt-0">
+                        <div class="col-md-6">
+                            <label class="form-label">First Name</label>
+                            <input type="text" class="form-control" placeholder="First name" aria-label="First name" />
                         </div>
-                        <div class="d-flex text-center justify-content-center"><span
-                                class="dot-label bg-secondary my-auto"></span>Total Orders
+                        <div class="col-md-6">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" />
                         </div>
-                    </div>
-                    <div class="chartjs-wrapper-demo w-100">
-                        <canvas id="transactions" class="chart-dropshadow w-100" height="660"
-                                style="display: block; box-sizing: border-box; height: 330px; width: 681px;"
-                                width="1362"></canvas>
-                    </div>
+                        <div class="col-md-6"><label for="inputEmail4" class="form-label">Email</label> <input type="email" class="form-control" id="inputEmail4" /></div>
+
+                        <div class="col-md-6"><label for="inputPassword4" class="form-label">Password</label> <input type="password" class="form-control" id="inputPassword4" /></div>
+
+                        <div class="col-12"><label for="inputAddress" class="form-label">Address</label> <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" /></div>
+
+                        <div class="col-12"><label for="inputAddress2" class="form-label">Address 2</label> <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" /></div>
+
+                        <div class="col-md-6">
+                            <label for="inputCity" class="form-label">City</label>
+                            <input type="text" class="form-control" id="inputCity" />
+                        </div>
+                        <div class="col-md-4">
+                            <label for="inputState" class="form-label">State</label>
+                            <select id="inputState" class="form-select form-select-lg">
+                                <option selected="">Choose...</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2"><label for="inputZip" class="form-label">Zip</label> <input type="text" class="form-control" id="inputZip" /></div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck3" />
+                                <label class="form-check-label" for="gridCheck3"> Check me out </label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Sign in</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </div> <!-- COL END -->
+        </div>
     </div>
     <div class="row">
         <div class="col-xl-12">
             <div class="card custom-card">
                 <div class="card-header justify-content-between">
-                    <div class="card-title"> Table Without Borders</div>
-                    <div class="prism-toggle">
-                        <button class="btn btn-sm btn-primary-light">Show Code<i
-                                class="ri-code-line ms-2 d-inline-block align-middle"></i></button>
-                    </div>
+                    <div class="card-title">Striped rows</div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table text-nowrap table-borderless">
+                        <table class="table text-nowrap table-striped">
                             <thead>
                             <tr>
-                                <th scope="col">User Name</th>
-                                <th scope="col">Transaction Id</th>
-                                <th scope="col">Created</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Customer</th>
+                                <th scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <th scope="row">Harshrath</th>
-                                <td>#5182-3467</td>
-                                <td>24 May 2022</td>
-                                <td><span class="badge bg-primary">Fixed</span></td>
+                                <th scope="row">2022R-01</th>
+                                <td>27-010-2022</td>
+                                <td>Moracco</td>
+                                <td>
+                                    <button class="btn btn-sm btn-success btn-wave waves-effect waves-light">
+                                        <i class="ri-download-2-line align-middle me-2 d-inline-block"></i>
+                                        Download
+                                    </button>
+                                </td>
                             </tr>
                             <tr>
-                                <th scope="row">Zozo Hadid</th>
-                                <td>#5182-3412</td>
-                                <td>02 July 2022</td>
-                                <td><span class="badge bg-warning">In Progress</span></td>
+                                <th scope="row">2022R-02</th>
+                                <td>28-10-2022</td>
+                                <td>Thornton</td>
+                                <td>
+                                    <button class="btn btn-sm btn-success btn-wave waves-effect waves-light">
+                                        <i class="ri-download-2-line align-middle me-2 d-inline-block"> </i>
+                                        Download
+                                    </button>
+                                </td>
                             </tr>
                             <tr>
-                                <th scope="row">Martiana</th>
-                                <td>#5182-3423</td>
-                                <td>15 April 2022</td>
-                                <td><span class="badge bg-success">Completed</span></td>
+                                <th scope="row">2022R-03</th>
+                                <td>22-10-2022</td>
+                                <td>Larry Bird</td>
+                                <td>
+                                    <button class="btn btn-sm btn-success btn-wave waves-effect waves-light"><i class="ri-download-2-line align-middle me-2 d-inline-block"></i>Download</button>
+                                </td>
                             </tr>
                             <tr>
-                                <th scope="row">Alex Carey</th>
-                                <td>#5182-3456</td>
-                                <td>17 March 2022</td>
-                                <td><span class="badge bg-danger">Pending</span></td>
+                                <th scope="row">2022R-04</th>
+                                <td>29-09-2022</td>
+                                <td>Erica Sean</td>
+                                <td>
+                                    <button class="btn btn-sm btn-success btn-wave waves-effect waves-light">
+                                        <i class="ri-download-2-line align-middle me-2 d-inline-block"></i>
+                                        Download
+                                    </button>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-
-                <div class="card-footer d-none border-top-0"> <!-- Prism Code -->
-                    <pre class="language-html" tabindex="0"><code class="language-html"><span class="token tag"><span
-                            class="token tag"><span class="token punctuation">&lt;</span>div</span> <span
-                            class="token attr-name">class</span><span class="token attr-value"><span
-                            class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>table-responsive<span
-                            class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span> <span
-            class="token attr-name">class</span><span class="token attr-value"><span
-            class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>table text-nowrap table-borderless<span
-            class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>thead</span><span
-                class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span
-                    class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>th</span> <span class="token attr-name">scope</span><span
-                        class="token attr-value"><span class="token punctuation attr-equals">=</span><span
-                        class="token punctuation">"</span>col<span class="token punctuation">"</span></span><span
-                        class="token punctuation">&gt;</span></span>User Name<span class="token tag"><span
-                                class="token tag"><span class="token punctuation">&lt;/</span>th</span><span
-                                class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>th</span> <span class="token attr-name">scope</span><span
-                        class="token attr-value"><span class="token punctuation attr-equals">=</span><span
-                        class="token punctuation">"</span>col<span class="token punctuation">"</span></span><span
-                        class="token punctuation">&gt;</span></span>Transaction Id<span class="token tag"><span
-                                class="token tag"><span class="token punctuation">&lt;/</span>th</span><span
-                                class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>th</span> <span class="token attr-name">scope</span><span
-                        class="token attr-value"><span class="token punctuation attr-equals">=</span><span
-                        class="token punctuation">"</span>col<span class="token punctuation">"</span></span><span
-                        class="token punctuation">&gt;</span></span>Created<span class="token tag"><span
-                                class="token tag"><span class="token punctuation">&lt;/</span>th</span><span
-                                class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>th</span> <span class="token attr-name">scope</span><span
-                        class="token attr-value"><span class="token punctuation attr-equals">=</span><span
-                        class="token punctuation">"</span>col<span class="token punctuation">"</span></span><span
-                        class="token punctuation">&gt;</span></span>Status<span class="token tag"><span
-                                class="token tag"><span class="token punctuation">&lt;/</span>th</span><span
-                                class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span
-                    class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>thead</span><span
-                class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tbody</span><span
-                class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span
-                    class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>th</span> <span class="token attr-name">scope</span><span
-                        class="token attr-value"><span class="token punctuation attr-equals">=</span><span
-                        class="token punctuation">"</span>row<span class="token punctuation">"</span></span><span
-                        class="token punctuation">&gt;</span></span>Harshrath<span class="token tag"><span
-                                class="token tag"><span class="token punctuation">&lt;/</span>th</span><span
-                                class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>#5182-3467<span
-                                class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span
-                                class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>24 May 2022<span
-                                class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span
-                                class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span><span
-                                class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span
-                                class="token attr-name">class</span><span class="token attr-value"><span
-                                class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>badge bg-primary<span
-                                class="token punctuation">"</span></span><span
-                                class="token punctuation">&gt;</span></span>Fixed<span class="token tag"><span
-                                class="token tag"><span class="token punctuation">&lt;/</span>span</span><span
-                                class="token punctuation">&gt;</span></span><span class="token tag"><span
-                                class="token tag"><span class="token punctuation">&lt;/</span>td</span><span
-                                class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span
-                    class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span
-                    class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>th</span> <span class="token attr-name">scope</span><span
-                        class="token attr-value"><span class="token punctuation attr-equals">=</span><span
-                        class="token punctuation">"</span>row<span class="token punctuation">"</span></span><span
-                        class="token punctuation">&gt;</span></span>Zozo Hadid<span class="token tag"><span
-                                class="token tag"><span class="token punctuation">&lt;/</span>th</span><span
-                                class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>#5182-3412<span
-                                class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span
-                                class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>02 July 2022<span
-                                class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span
-                                class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span><span
-                                class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span
-                                class="token attr-name">class</span><span class="token attr-value"><span
-                                class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>badge bg-warning<span
-                                class="token punctuation">"</span></span><span
-                                class="token punctuation">&gt;</span></span>In Progress<span class="token tag"><span
-                                class="token tag"><span class="token punctuation">&lt;/</span>span</span><span
-                                class="token punctuation">&gt;</span></span><span class="token tag"><span
-                                class="token tag"><span class="token punctuation">&lt;/</span>td</span><span
-                                class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span
-                    class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span
-                    class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>th</span> <span class="token attr-name">scope</span><span
-                        class="token attr-value"><span class="token punctuation attr-equals">=</span><span
-                        class="token punctuation">"</span>row<span class="token punctuation">"</span></span><span
-                        class="token punctuation">&gt;</span></span>Martiana<span class="token tag"><span
-                                class="token tag"><span class="token punctuation">&lt;/</span>th</span><span
-                                class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>#5182-3423<span
-                                class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span
-                                class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>15 April 2022<span
-                                class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span
-                                class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span><span
-                                class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span
-                                class="token attr-name">class</span><span class="token attr-value"><span
-                                class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>badge bg-success<span
-                                class="token punctuation">"</span></span><span
-                                class="token punctuation">&gt;</span></span>Completed<span class="token tag"><span
-                                class="token tag"><span class="token punctuation">&lt;/</span>span</span><span
-                                class="token punctuation">&gt;</span></span><span class="token tag"><span
-                                class="token tag"><span class="token punctuation">&lt;/</span>td</span><span
-                                class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span
-                    class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span
-                    class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>th</span> <span class="token attr-name">scope</span><span
-                        class="token attr-value"><span class="token punctuation attr-equals">=</span><span
-                        class="token punctuation">"</span>row<span class="token punctuation">"</span></span><span
-                        class="token punctuation">&gt;</span></span>Alex Carey<span class="token tag"><span
-                                class="token tag"><span class="token punctuation">&lt;/</span>th</span><span
-                                class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>#5182-3456<span
-                                class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span
-                                class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>17 March 2022<span
-                                class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span
-                                class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span
-                        class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span><span
-                                class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span
-                                class="token attr-name">class</span><span class="token attr-value"><span
-                                class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>badge bg-danger<span
-                                class="token punctuation">"</span></span><span
-                                class="token punctuation">&gt;</span></span>Pending<span class="token tag"><span
-                                class="token tag"><span class="token punctuation">&lt;/</span>span</span><span
-                                class="token punctuation">&gt;</span></span><span class="token tag"><span
-                                class="token tag"><span class="token punctuation">&lt;/</span>td</span><span
-                                class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span
-                    class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tbody</span><span
-                class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span
-            class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span
-        class="token punctuation">&gt;</span></span></code></pre> <!-- Prism Code --> </div>
             </div>
         </div>
     </div>
