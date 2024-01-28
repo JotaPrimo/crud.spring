@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+
+<div th:fragment="alert-message" class="mt-5">
+
+    <div th:if="${msgSuccess}" class="alert alert-success alert-dismissible fade show" role="alert">
+        <p th:text="${msgSuccess}"></p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="bi bi-x"></i>
+        </button>
+    </div>
+
+    <div th:if="${msgInfo}" class="alert alert-info alert-dismissible fade show" role="alert">
+        <p th:text="${msgInfo}"></p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="bi bi-x"></i>
+        </button>
+    </div>
+
+    <div th:if="${msgWarning}" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <p th:text="${msgWarning}"></p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="bi bi-x"></i>
+        </button>
+    </div>
+
+    <div th:if="${msgDanger}" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <p th:text="${msgDanger}"></p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="bi bi-x"></i>
+        </button>
+    </div>
+</div>
+
+</body>
+</html>

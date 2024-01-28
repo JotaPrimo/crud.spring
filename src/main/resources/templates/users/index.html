@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/public/base">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="layout/public/base">
 <body>
 <!-- Conteúdo específico da página de usuários aqui -->
 <div layout:fragment="content">
@@ -8,54 +9,58 @@
             <div class="card custom-card">
                 <div class="card-header justify-content-between">
                     <div class="card-title">Usuários</div>
-                    <div class="prism-toggle">
-                        <button class="btn btn-sm btn-primary-light">Show Code<i class="ri-code-line ms-2 d-inline-block align-middle"></i></button>
-                    </div>
                 </div>
                 <div class="card-body">
-                    <form class="row g-3 mt-0">
-                        <div class="col-md-6">
-                            <label class="form-label">First Name</label>
-                            <input type="text" class="form-control" placeholder="First name" aria-label="First name" />
+                    <form id="form_user" action="/users/store" method="post" th:object="${user}" class="row g-3 mt-0">
+                        <div class="col-md-4 col-sm-12">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" required minlength="5" maxlength="255" id="name" th:field="*{name}"
+                                   name="name" class="form-control" placeholder="Nome" aria-label="Nome"/>
+                            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="invalid-feedback"></div>
                         </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Last Name</label>
-                            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" />
+                        <div class="col-md-4 col-sm-12">
+                            <label for="cpf" class="form-label">CPF</label>
+                            <input type="text" id="cpf" name="cpf" th:field="*{cpf}" required minlength="14"
+                                   maxlength="14" class="form-control" placeholder="CPF" aria-label="CPF"/>
+                            <div th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" class="invalid-feedback"></div>
                         </div>
-                        <div class="col-md-6"><label for="inputEmail4" class="form-label">Email</label> <input type="email" class="form-control" id="inputEmail4" /></div>
-
-                        <div class="col-md-6"><label for="inputPassword4" class="form-label">Password</label> <input type="password" class="form-control" id="inputPassword4" /></div>
-
-                        <div class="col-12"><label for="inputAddress" class="form-label">Address</label> <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" /></div>
-
-                        <div class="col-12"><label for="inputAddress2" class="form-label">Address 2</label> <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" /></div>
-
-                        <div class="col-md-6">
-                            <label for="inputCity" class="form-label">City</label>
-                            <input type="text" class="form-control" id="inputCity" />
+                        <div class="col-md-4 col-sm-12">
+                            <label for="dataNascimento" class="form-label">Data de Nascimento</label>
+                            <input type="date" required class="form-control" th:field="*{dataNascimento}"
+                                   name="dataNascimento" id="dataNascimento" />
+                            <div th:if="${#fields.hasErrors('dataNascimento')}" th:errors="*{dataNascimento}" class="invalid-feedback"></div>
                         </div>
-                        <div class="col-md-4">
-                            <label for="inputState" class="form-label">State</label>
-                            <select id="inputState" class="form-select form-select-lg">
-                                <option selected="">Choose...</option>
-                                <option>...</option>
-                            </select>
+
+                        <div class="col-md-4 col-sm-12">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" name="password" th:field="*{password}" required class="form-control"
+                                   id="password" autocomplete="off"/>
+                            <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="invalid-feedback"></div>
                         </div>
-                        <div class="col-md-2"><label for="inputZip" class="form-label">Zip</label> <input type="text" class="form-control" id="inputZip" /></div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="text" class="form-control" th:field="*{telefone}" id="telefone" name="telefone"
+                                   placeholder="(99)99999-9999" minlength="15" maxlength="15" />
+                            <div th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}" class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" required class="form-control" th:field="*{username}" name="username"
+                                   id="username" autocomplete="off" placeholder="Username"/>
+                            <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="invalid-feedback"></div>
+                        </div>
+
                         <div class="col-12">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck3" />
-                                <label class="form-check-label" for="gridCheck3"> Check me out </label>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary">Sign in</button>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="row">
         <div class="col-xl-12">
             <div class="card custom-card">
@@ -68,52 +73,32 @@
                             <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Customer</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">CPF</th>
+                                <th scope="col">Data de nascimento</th>
+                                <th scope="col">Teleofone</th>
+                                <th scope="col">Ativo</th>
+                                <th scope="col">Ações</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th scope="row">2022R-01</th>
-                                <td>27-010-2022</td>
-                                <td>Moracco</td>
-                                <td>
-                                    <button class="btn btn-sm btn-success btn-wave waves-effect waves-light">
-                                        <i class="ri-download-2-line align-middle me-2 d-inline-block"></i>
-                                        Download
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2022R-02</th>
-                                <td>28-10-2022</td>
-                                <td>Thornton</td>
-                                <td>
-                                    <button class="btn btn-sm btn-success btn-wave waves-effect waves-light">
-                                        <i class="ri-download-2-line align-middle me-2 d-inline-block"> </i>
-                                        Download
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2022R-03</th>
-                                <td>22-10-2022</td>
-                                <td>Larry Bird</td>
-                                <td>
-                                    <button class="btn btn-sm btn-success btn-wave waves-effect waves-light"><i class="ri-download-2-line align-middle me-2 d-inline-block"></i>Download</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2022R-04</th>
-                                <td>29-09-2022</td>
-                                <td>Erica Sean</td>
-                                <td>
-                                    <button class="btn btn-sm btn-success btn-wave waves-effect waves-light">
-                                        <i class="ri-download-2-line align-middle me-2 d-inline-block"></i>
-                                        Download
-                                    </button>
-                                </td>
+                            <tr th:each="u : ${users}">
+                                <th scope="row" th:text="${u.id}"></th>
+                                <th scope="row" th:text="${u.name}"></th>
+                                <th scope="row" th:text="${u.username}"></th>
+                                <th scope="row" th:text="${u.cpf}"></th>
+                                <th scope="row" th:text="${u.dataNascimentoFormatada}"></th>
+                                <th scope="row" th:text="${u.telefone}"></th>
+                                <th scope="row">
+                                    <span th:class="${u.ativo ? 'badge bg-success' : 'badge bg-danger' }"
+                                            th:text="${u.ativo ? 'ATIVO' : 'INATIVO'}">
+                                    </span>
+                                </th>
+                                <th scope="row">
+                                    <button class="btn btn-warning btn-sm btn-wave waves-effect waves-light" type="button">Editar</button>
+                                    <button class="btn btn-danger btn-sm btn-wave waves-effect waves-light" type="button">Deletar</button>
+                                </th>
                             </tr>
                             </tbody>
                         </table>
