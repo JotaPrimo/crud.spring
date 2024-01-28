@@ -1,14 +1,13 @@
 package br.com.jotasantos.crud.spring.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Past;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
@@ -37,21 +36,21 @@ public class User implements Serializable {
     @CPF
     @Column(nullable = false)
     @NotBlank(message = "CPF is a required field")
-    @Size(min = 11, max = 11, message = "The CPF field must contain 11 characters")
+    @Size(min = 14, max = 14, message = "The CPF field must contain 11 characters")
     private String cpf;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    @NotBlank(message = "The data nascimento is a required field")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotNull(message = "The data nascimento is a required field")
     @Past
     @Column(name = "data_nascimento")
     private Date dataNascimento;
 
     @Column(columnDefinition = "BOOLEAN DEFAULT true")
-    private boolean ativo;
+    private boolean ativo = true;
 
     @Column
     @NotBlank(message = "The field telefone is required")
-    @Size(min = 11, max = 11, message = "The field telefone must have 11 characters")
+    @Size(min = 14, max = 14, message = "The field telefone must have 11 characters")
     private String telefone;
 
     @Column(name = "created_at")
@@ -134,6 +133,11 @@ public class User implements Serializable {
         this.createdAt = createdAt;
     }
 
+    public String dataNascimentoFormatada() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+        return dateFormat.format(getDataNascimento());
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
