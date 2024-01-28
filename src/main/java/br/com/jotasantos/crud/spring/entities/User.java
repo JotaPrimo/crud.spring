@@ -8,6 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -57,6 +58,11 @@ public class User implements Serializable {
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
+
+    @Column(name = "deleted_at", columnDefinition = "NULLABLE default null")
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime deleteddAt = null;
 
     public User() {
     }
@@ -138,6 +144,15 @@ public class User implements Serializable {
 
         return dateFormat.format(getDataNascimento());
     }
+
+    public LocalDateTime getDeleteddAt() {
+        return deleteddAt;
+    }
+
+    public void setDeleteddAt(LocalDateTime deleteddAt) {
+        this.deleteddAt = deleteddAt;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
