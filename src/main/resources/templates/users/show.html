@@ -8,12 +8,10 @@
         <div class="col-xl-12">
             <div class="card custom-card">
                 <div class="card-header justify-content-between">
-                    <div class="card-title">
-                        Edit User <span th:text="${user.name}"></span>
-                    </div>
+                    <div class="card-title">New User</div>
                 </div>
                 <div class="card-body">
-                    <form id="form_user_update" action="/users/update" method="post" th:object="${user}" class="row g-3 mt-0">
+                    <form id="form_user" action="/users/store" method="post" th:object="${user}" class="row g-3 mt-0">
                         <div class="col-md-4 col-sm-12">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" required minlength="5" maxlength="255" id="name" th:field="*{name}"

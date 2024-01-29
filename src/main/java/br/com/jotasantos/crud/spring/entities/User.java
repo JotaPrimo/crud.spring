@@ -59,7 +59,7 @@ public class User implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 
-    @Column(name = "deleted_at", columnDefinition = "NULLABLE default null")
+    @Column(name = "deleted_at", columnDefinition = "TIMESTAMP DEFAULT NULL")
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime deleteddAt = null;
