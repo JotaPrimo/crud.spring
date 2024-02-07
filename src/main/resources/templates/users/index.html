@@ -15,7 +15,8 @@
                             <label for="name" class="form-label">Name</label>
                             <input type="text" required minlength="5" maxlength="255" id="name" th:field="*{name}"
                                    name="name" class="form-control" placeholder="Nome" aria-label="Nome"/>
-                            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="invalid-feedback"></div>
+                            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                                 class="invalid-feedback"></div>
                         </div>
                         <div class="col-md-4 col-sm-12">
                             <label for="cpf" class="form-label">CPF</label>
@@ -28,7 +29,8 @@
                             <label for="username" class="form-label">Username</label>
                             <input type="text" required class="form-control" th:field="*{username}" name="username"
                                    id="username" autocomplete="off" placeholder="Username"/>
-                            <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="invalid-feedback"></div>
+                            <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
+                                 class="invalid-feedback"></div>
                         </div>
 
                         <div class="col-12">
@@ -45,7 +47,7 @@
         <div class="col-xl-12">
             <div class="card custom-card">
                 <div class="card-header justify-content-between">
-                    <div class="card-title">Striped rows</div>
+                    <div class="card-title">Listagem dos usuários</div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -72,13 +74,43 @@
                                 <th scope="row" th:text="${u.telefone}"></th>
                                 <th scope="row">
                                     <span th:class="${u.ativo ? 'badge bg-success' : 'badge bg-danger' }"
-                                            th:text="${u.ativo ? 'ATIVO' : 'INATIVO'}">
+                                          th:text="${u.ativo ? 'ATIVO' : 'INATIVO'}">
                                     </span>
                                 </th>
                                 <th scope="row">
-                                    <a th:href="@{/users/{id}/show(id=${user.id})}" class="btn btn-info btn-sm btn-wave waves-effect waves-light">Show</a>
-                                    <a th:href="@{/users/{id}/edit(id=${user.id})}" class="btn btn-warning btn-sm btn-wave waves-effect waves-light">Editar</a>
-                                    <button class="btn btn-danger btn-sm btn-wave waves-effect waves-light">Deletar</button>
+                                    <a th:href="@{/users/{id}/show(id=${u.id})}"
+                                       class="btn btn-info btn-sm btn-wave waves-effect waves-light">Show</a>
+                                    <a th:href="@{/users/{id}/edit(id=${u.id})}"
+                                       class="btn btn-warning btn-sm btn-wave waves-effect waves-light">Editar</a>
+
+                                    <button class="btn btn-danger btn-sm btn-wave waves-effect waves-light"
+                                            data-bs-toggle="modal" th:data-bs-target="'#modelDelete' + ${u.id}">Deletar
+                                    </button>
+
+                                    <!-- Modal Delete -->
+                                    <div class="modal fade modal-dialog-centered" th:id="'modelDelete' + ${u.id}" tabindex="-1"
+                                         aria-labelledby="modelDeleteLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="modelDeleteLabel">Modal title</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    ...
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close
+                                                    </button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal Delete -->
+
                                 </th>
                             </tr>
                             </tbody>
