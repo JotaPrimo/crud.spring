@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
-      layout:decorate="~{layout/public/base}">
+<html layout:decorate="~{layout/public/base}">
 <body>
 <!-- Conteúdo específico da página de usuários aqui -->
 <div layout:fragment="content">
@@ -33,58 +32,13 @@
                         </div>
 
                         <div class="col-12">
-                            <button type="submit" class="btn btn-sm btn-secondary">Buscar</button>
-                            <a th:href="@{/users/create}" class="btn btn-sm btn-primary">Novo</a>
+                            <button type="submit" class="btn btn-sm btn-secondary">Salvar</button>
+                            <a th:href="@{/users}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-long-arrow-alt-left"></i>
+                                Voltar
+                            </a>
                         </div>
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card custom-card">
-                <div class="card-header justify-content-between">
-                    <div class="card-title">Striped rows</div>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table text-nowrap table-striped">
-                            <thead>
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">CPF</th>
-                                <th scope="col">Data de nascimento</th>
-                                <th scope="col">Teleofone</th>
-                                <th scope="col">Ativo</th>
-                                <th scope="col">Ações</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="u : ${users}">
-                                <th scope="row" th:text="${u.id}"></th>
-                                <th scope="row" th:text="${u.name}"></th>
-                                <th scope="row" th:text="${u.username}"></th>
-                                <th scope="row" th:text="${u.cpf}"></th>
-                                <th scope="row" th:text="${u.dataNascimentoFormatada}"></th>
-                                <th scope="row" th:text="${u.telefone}"></th>
-                                <th scope="row">
-                                    <span th:class="${u.ativo ? 'badge bg-success' : 'badge bg-danger' }"
-                                          th:text="${u.ativo ? 'ATIVO' : 'INATIVO'}">
-                                    </span>
-                                </th>
-                                <th scope="row">
-                                    <a th:href="@{/users/{id}/show(id=${user.id})}" class="btn btn-info btn-sm btn-wave waves-effect waves-light">Show</a>
-                                    <a th:href="@{/users/{id}/edit(id=${user.id})}" class="btn btn-warning btn-sm btn-wave waves-effect waves-light">Editar</a>
-                                    <button class="btn btn-danger btn-sm btn-wave waves-effect waves-light">Deletar</button>
-                                </th>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
             </div>
         </div>

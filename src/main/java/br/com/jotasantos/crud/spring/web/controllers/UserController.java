@@ -43,12 +43,12 @@ public class UserController {
 
         if (optionalUser.isPresent()) {
             model.addAttribute("user", optionalUser.get());
-            return "/users";
+            return "/users/show";
         }
 
         redirectAttributes.addFlashAttribute("msgDanger", "User not found");
 
-        return "/users/show";
+        return "/users";
     }
 
     @PostMapping("/store")

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
-      layout:decorate="~{layout/public/base}">
+<html layout:decorate="~{layout/public/base}">
 <body>
 <!-- Conteúdo específico da página de usuários aqui -->
 <div layout:fragment="content">
@@ -8,7 +7,7 @@
         <div class="col-xl-12">
             <div class="card custom-card">
                 <div class="card-header justify-content-between">
-                    <div class="card-title">Usuários</div>
+                    <div class="card-title">Buscar Usuários</div>
                 </div>
                 <div class="card-body">
                     <form id="form_user" action="/users/store" method="post" th:object="${user}" class="row g-3 mt-0">
